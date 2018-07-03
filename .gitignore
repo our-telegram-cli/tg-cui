@@ -1,0 +1,9 @@
+# Build Stuff
+/cmake*/
+/build/*
+
+# Idea
+/.idea/*
+
+# Cmake specification
+!CMakeLists.txt
