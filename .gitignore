@@ -1,6 +1,6 @@
 # Build Stuff
-/cmake*/
-/build/*
+cmake*/
+build/*
 
 # Idea
 /.idea/*
