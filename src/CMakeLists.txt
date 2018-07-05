@@ -16,13 +16,13 @@ add_subdirectory(${UI_DIR})
 add_subdirectory(${CONTROLLER_DIR})
 
 set(DEPENDENCIES
-    ${CORE_LIB}
-    ${UI_LIB}
-    ${CONTROLLER_LIB}
+  ${CORE_LIB}
+  ${UI_LIB}
+  ${CONTROLLER_LIB}
 )
 
 set(TARGET_SOURCES
-    main.cc
+  main.cc
 )
 
 add_library(${PROJECT_NAME} ${TARGET_SOURCES})
