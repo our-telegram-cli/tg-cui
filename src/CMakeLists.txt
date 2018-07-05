@@ -8,12 +8,17 @@ set(CORE_LIB core-tg-cui)
 set(UI_DIR ui)
 set(UI_LIB ui-tg-cui)
 
+set(CONTROLLER_DIR controller)
+set(CONTROLLER_LIB controller-tg-cui)
+
 add_subdirectory(${CORE_DIR})
 add_subdirectory(${UI_DIR})
+add_subdirectory(${CONTROLLER_DIR})
 
 set(DEPENDENCIES
     ${CORE_LIB}
     ${UI_LIB}
+    ${CONTROLLER_LIB}
 )
 
 set(TARGET_SOURCES
