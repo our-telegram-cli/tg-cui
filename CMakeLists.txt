@@ -10,15 +10,17 @@ else()
     include_directories(${CURSES_INCLUDE_DIR})
 endif()
 
-include_directories(src/)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -Wall")
+set(SOURCE_DIR src)
 
-add_subdirectory(src/)
+include_directories(${SOURCE_DIR})
 
-add_executable(tg-cui "")
+add_subdirectory(${SOURCE_DIR})
 
-target_link_libraries(tg-cui
-  ${CURSES_LIBRARIES}
-  root-tg-cui
+add_executable(${PROJECT_NAME} "")
+
+target_link_libraries(${PROJECT_NAME}
+    ${CURSES_LIBRARIES}
+    root-tg-cui
 )
 
