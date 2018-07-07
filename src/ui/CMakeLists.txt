@@ -19,4 +19,4 @@ set(TARGET_SOURCES
 
 add_library(${PROJECT_NAME} STATIC ${TARGET_SOURCES})
 
-target_link_libraries(${PROJECT_NAME} STATIC ${CURSES_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} ${CURSES_LIBRARIES})
