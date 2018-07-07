@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.0)
 
 project(root-tg-cui)
 
-set(CORE_DIR core)
-set(CORE_LIB core-tg-cui)
+set(CORE_DIR dhandler)
+set(CORE_LIB dhandler-tg-cui)
 
 set(UI_DIR ui)
 set(UI_LIB ui-tg-cui)

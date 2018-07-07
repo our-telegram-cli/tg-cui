@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 
-project(core-tg-cui)
+project(dhandler-tg-cui)
 
 set(TARGET_SOURCES
   model.cc
