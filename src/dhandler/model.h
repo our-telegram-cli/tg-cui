@@ -5,7 +5,7 @@
 
 class Model : public Authorizable {
  public:
-  void auth();
+  void auth() override;
  private:
   Authorizable authorizable;
 };

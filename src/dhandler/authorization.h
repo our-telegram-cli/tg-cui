@@ -9,7 +9,7 @@
 
 class Authorization : public Authorizable {
  public:
-  void auth();
+  void auth() override;
 };
 
 #endif //TG_CUI_AUTH_H
