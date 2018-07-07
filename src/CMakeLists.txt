@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.0)
 
 project(root-tg-cui)
 
-set(CORE_DIR dhandler)
-set(CORE_LIB dhandler-tg-cui)
+set(DHANDLER_DIR dhandler)
+set(DHANDLER_LIB dhandler-tg-cui)
 
 set(UI_DIR ui)
 set(UI_LIB ui-tg-cui)
@@ -11,12 +11,12 @@ set(UI_LIB ui-tg-cui)
 set(CONTROLLER_DIR controller)
 set(CONTROLLER_LIB controller-tg-cui)
 
-add_subdirectory(${CORE_DIR})
+add_subdirectory(${DHANDLER_DIR})
 add_subdirectory(${UI_DIR})
 add_subdirectory(${CONTROLLER_DIR})
 
 set(DEPENDENCIES
-  ${CORE_LIB}
+  ${DHANDLER_LIB}
   ${UI_LIB}
   ${CONTROLLER_LIB}
 )
