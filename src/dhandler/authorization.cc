@@ -4,6 +4,6 @@
 
 #include "authorization.h"
 
-void Authorization::auth() {
-  //TODO implement
+void Authorization::auth(std::string token) {
+  // TODO implement
 }

@@ -9,7 +9,7 @@
 
 class Authorization : public Authorizable {
  public:
-  void auth() override;
+  void auth(std::string token) override;
 };
 
-#endif //TG_CUI_AUTH_H
+#endif  // TG_CUI_AUTH_H

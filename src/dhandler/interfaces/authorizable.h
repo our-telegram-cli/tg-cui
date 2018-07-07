@@ -5,9 +5,11 @@
 #ifndef TG_CUI_AUTHORIZABLE_H
 #define TG_CUI_AUTHORIZABLE_H
 
+#include <string>
+
 class Authorizable {
  public:
-  virtual void auth() = 0;
+  virtual void auth(std::string token) = 0;
 };
 
 #endif //TG_CUI_AUTHORIZABLE_H
