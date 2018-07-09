@@ -3,6 +3,8 @@
 #define TG_CUI_CONTROLLER_H
 
 class Controller {
+public:
+    Controller();
 
 };
 
