@@ -10,6 +10,13 @@ else ()
   include_directories(${CURSES_INCLUDE_DIR})
 endif ()
 
+set(TARGET_HEADERS
+  chat_panel.h
+  dialogs_panel.h
+  main_panel.h
+  view.h
+)
+
 set(TARGET_SOURCES
   view.cc
   main_panel.cc
@@ -17,6 +24,6 @@ set(TARGET_SOURCES
   chat_panel.cc
 )
 
-add_library(${PROJECT_NAME} STATIC ${TARGET_SOURCES})
+add_library(${PROJECT_NAME} STATIC ${TARGET_HEADERS} ${TARGET_SOURCES})
 
 target_link_libraries(${PROJECT_NAME} ${CURSES_LIBRARIES})

@@ -1,0 +1,7 @@
+#ifndef TG_CUI_DIALOGS_PANEL
+#define TG_CUI_DIALOGS_PANEL
+
+
+
+#endif // TG_CUI_DIALOGS_PANEL
+
