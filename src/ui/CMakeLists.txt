@@ -11,14 +11,16 @@ else ()
 endif ()
 
 set(TARGET_HEADERS
-  chat_panel.h
-  dialogs_panel.h
-  main_panel.h
   view.h
+  interact.h
+  main_panel.h
+  dialogs_panel.h
+  chat_panel.h
 )
 
 set(TARGET_SOURCES
   view.cc
+  interact.cc
   main_panel.cc
   dialogs_panel.cc
   chat_panel.cc

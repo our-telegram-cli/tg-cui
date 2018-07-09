@@ -1,7 +1,4 @@
-#ifndef TG_CUI_DIALOGS_PANEL
-#define TG_CUI_DIALOGS_PANEL
+#ifndef TG_CUI_DIALOGS_PANEL_H_
+#define TG_CUI_DIALOGS_PANEL_H_
 
-
-
-#endif // TG_CUI_DIALOGS_PANEL
-
+#endif  // TG_CUI_DIALOGS_PANEL_H_
