@@ -9,6 +9,9 @@
 
 namespace ui {
 
+/**
+ * Interaction event at List.
+ */
 class ListEvent {
  public:
   ListEvent(std::size_t pos) : selected_position(pos) {}
@@ -19,6 +22,9 @@ class ListEvent {
   const std::size_t selected_position;
 };
 
+/**
+ * Vertical List of Views.
+ */
 class List : public View, public Interactable<List, ListEvent> {
  public:
   virtual void Draw() const override;
@@ -39,6 +45,9 @@ class List : public View, public Interactable<List, ListEvent> {
   std::vector<const View*> items;
 };
 
+/**
+ * Dialog in chats list.
+ */
 class DialogsListItem : public View {
  public:
   DialogsListItem(Window& win) : View(win) {}
@@ -65,6 +74,9 @@ class DialogsListItem : public View {
   bool unread = false;
 };
 
+/**
+ * Interaction event of Input Field.
+ */
 class InputFieldEvent {
  public:
   InputFieldEvent(const std::string& input) : input(input) {}
@@ -75,6 +87,9 @@ class InputFieldEvent {
   const std::string& input;
 };
 
+/**
+ * Text input field.
+ */
 class InputField : public View,
                    public Interactable<InputField, InputFieldEvent> {
  public:
@@ -85,6 +100,12 @@ class InputField : public View,
   virtual void MouseInteract(std::size_t x, std::size_t y) override;
 
   virtual void KeyboardInteract(int key) override;
+
+  const std::string& GetText() const;
+
+  void SetText(const std::string& str);
+
+  void ClearText();
 
  private:
   std::string input;  // TODO - replace to input buffer

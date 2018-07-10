@@ -7,6 +7,11 @@
 
 namespace ui {
 
+/**
+ * Interaction event with Interactable.
+ * V is Interactable element type.
+ * D is Event data type.
+ */
 template <typename V, typename D>
 class InteractEvent {
  public:
@@ -21,12 +26,22 @@ class InteractEvent {
   const V& view;
 };
 
+/**
+ * Interaction event listener.
+ * V is Interactable element type.
+ * D is Event data type.
+ */
 template <typename V, typename D>
 class InteractListener {
  public:
   virtual void OnInteract(const InteractEvent<V, D>& event) = 0;
 };
 
+/**
+ * Interactable element.
+ * V is Interactable element type.
+ * D is Event data type.
+ */
 template <typename V, typename D>
 class Interactable {
  public:

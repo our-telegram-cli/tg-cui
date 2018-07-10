@@ -31,4 +31,16 @@ void InputField::MouseInteract(std::size_t x, std::size_t y) {
 
 void InputField::KeyboardInteract(int key) {}
 
+const std::string& InputField::GetText() const {
+  return input;
+}
+
+void InputField::SetText(const std::string& str) {
+  input = str;
+}
+
+void InputField::ClearText() {
+  SetText("");
+}
+
 }  // namespace ui
