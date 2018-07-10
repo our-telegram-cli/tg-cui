@@ -19,40 +19,37 @@ class ListEvent {
   const std::size_t selected_position;
 };
 
-class List : public virtual View, public virtual Interactable<List, ListEvent> {
+class List : public View, public Interactable<List, ListEvent> {
  public:
-  virtual void Draw(Window& canvas) const override;
+  virtual void Draw() const override;
 
   virtual void MouseInteract(std::size_t x, std::size_t y) override;
 
   virtual void KeyboardInteract(int key) override;
 
-  virtual void AddItem(View* view);
+  virtual void AddItem(const View* view);
 
-  const View* GetItem(std::size_t pos) { return items[pos]; }
+  const View* GetItem(std::size_t pos) const { return items[pos]; }
 
   const View* RemoveItem(std::size_t pos);
 
   std::size_t Size() const { return items.size(); }
 
  protected:
-  std::vector<View*> items;
+  std::vector<const View*> items;
 };
 
 class DialogsListItem : public View {
  public:
-  DialogsListItem() {}
+  DialogsListItem(Window& win) : View(win) {}
 
-  DialogsListItem(const std::string& title,
+  DialogsListItem(Window& win,
+                  const std::string& title,
                   const std::string& content,
                   bool unread)
-      : title(title), content(content), unread(unread) {}
+      : View(win), title(title), content(content), unread(unread) {}
 
-  virtual void Draw(Window& canvas) const override;
-
-  virtual void MouseInteract(std::size_t x, std::size_t y) override;
-
-  virtual void KeyboardInteract(int key) override;
+  virtual void Draw() const override;
 
   bool is_unread() const { return unread; }
 
@@ -66,6 +63,31 @@ class DialogsListItem : public View {
   std::string title;
   std::string content;
   bool unread = false;
+};
+
+class InputFieldEvent {
+ public:
+  InputFieldEvent(const std::string& input) : input(input) {}
+
+  const std::string& get_input() { return input; }
+
+ private:
+  const std::string& input;
+};
+
+class InputField : public View,
+                   public Interactable<InputField, InputFieldEvent> {
+ public:
+  using View::View;
+
+  virtual void Draw() const override;
+
+  virtual void MouseInteract(std::size_t x, std::size_t y) override;
+
+  virtual void KeyboardInteract(int key) override;
+
+ private:
+  std::string input;  // TODO - replace to input buffer
 };
 
 }  // namespace ui

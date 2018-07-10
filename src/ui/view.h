@@ -2,18 +2,38 @@
 #define TG_CUI_VIEW_H_
 
 #include <cstddef>
+#include <vector>
 
 namespace ui {
 
-class Window {};
+class View;
+
+class Window {
+ public:
+  bool AddView(View* view);
+
+  bool RemoveView(const View* view);
+
+  bool ContainsView(const View* view) const;
+
+  bool FocusAt(View* view);
+
+ private:
+  std::vector<View*> views;  // TODO - replace to set
+  View* focus = nullptr;
+};
 
 class View {
  public:
-  virtual void Draw(Window& canvas) const = 0;
+  View(Window& win) : window(win) {}
 
-  virtual void MouseInteract(std::size_t x, std::size_t y) = 0;
+  virtual void Draw() const = 0;
 
-  virtual void KeyboardInteract(int key) = 0;
+  virtual void MouseInteract(std::size_t x, std::size_t y) { SetFocused(true); }
+
+  virtual void KeyboardInteract(int key) {}
+
+  virtual void SetFocused(bool focused);
 
   virtual void SetBounds(std::size_t x,
                          std::size_t y,
@@ -29,17 +49,21 @@ class View {
     this->height = height;
   }
 
-  size_t get_x() const { return x; }
+  std::size_t get_x() const { return x; }
 
-  size_t get_y() const { return y; }
+  std::size_t get_y() const { return y; }
 
-  size_t get_width() const { return width; }
+  std::size_t get_width() const { return width; }
 
-  size_t get_height() const { return height; }
+  std::size_t get_height() const { return height; }
 
- private:
-  size_t x, y;
-  size_t width, height;
+  virtual ~View();
+
+ protected:
+  std::size_t x = 0, y = 0;
+  std::size_t width = 1, height = 1;
+
+  Window& window;
 };
 
 class Panel : public Window {};
