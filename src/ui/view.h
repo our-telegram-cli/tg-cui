@@ -1,15 +1,19 @@
 #ifndef TG_CUI_VIEW_H_
 #define TG_CUI_VIEW_H_
 
-#include "interact.h"
+#include <cstddef>
 
 namespace ui {
 
 class Window {};
 
-class View : public Interactable {
+class View {
  public:
-  virtual void draw(Window& canvas) const = 0;
+  virtual void Draw(Window& canvas) const = 0;
+
+  virtual void MouseInteract(std::size_t x, std::size_t y) = 0;
+
+  virtual void KeyboardInteract(int key) = 0;
 
   virtual void SetBounds(std::size_t x,
                          std::size_t y,

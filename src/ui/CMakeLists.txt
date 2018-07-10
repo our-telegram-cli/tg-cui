@@ -13,6 +13,7 @@ endif ()
 set(TARGET_HEADERS
   view.h
   interact.h
+  widgets.h
   main_panel.h
   dialogs_panel.h
   chat_panel.h
@@ -21,6 +22,7 @@ set(TARGET_HEADERS
 set(TARGET_SOURCES
   view.cc
   interact.cc
+  widgets.cc
   main_panel.cc
   dialogs_panel.cc
   chat_panel.cc

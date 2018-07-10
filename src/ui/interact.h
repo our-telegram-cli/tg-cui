@@ -3,31 +3,41 @@
 
 #include <cstddef>
 
+#include "view.h"
+
+namespace ui {
+
+template <typename V, typename D>
 class InteractEvent {
  public:
-  InteractEvent(const std::size_t x, const std::size_t y) : x(x), y(y){};
+  InteractEvent(const V& view, const D& event) : view(view), event(event){};
 
-  std::size_t get_x() const { return x; }
+  const V& get_view() const { return view; }
 
-  std::size_t get_y() const { return y; }
+  const D& get_data() const { return event; }
 
  private:
-  const std::size_t x, y;
+  const D& event;
+  const V& view;
 };
 
+template <typename V, typename D>
 class InteractListener {
  public:
-  virtual void OnInteract(const InteractEvent& event) = 0;
+  virtual void OnInteract(const InteractEvent<V, D>& event) = 0;
 };
 
+template <typename V, typename D>
 class Interactable {
  public:
-  void SetInteractListener(InteractListener* listener) {
+  void SetInteractListener(InteractListener<V, D>* listener) {
     this->listener = listener;
   }
 
  protected:
-  InteractListener* listener = nullptr;
+  InteractListener<V, D>* listener = nullptr;
 };
+
+}  // namespace ui
 
 #endif  // TG_CUI_INTERACT_H_
