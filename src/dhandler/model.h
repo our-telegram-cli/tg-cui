@@ -1,5 +1,5 @@
-#ifndef TG_CUI_MODEL_H
-#define TG_CUI_MODEL_H
+#ifndef TG_CUI_MODEL_H_
+#define TG_CUI_MODEL_H_
 
 #include <memory>
 
@@ -10,9 +10,10 @@ class Model : public Authorizable {
   Model();
   Model(std::unique_ptr<Authorizable> authorizable);
   void auth(std::string token) override;
+  virtual ~Model() = default;
 
  private:
   std::unique_ptr<Authorizable> authorizable;
 };
 
-#endif  // TG_CUI_MODEL_H
+#endif  // TG_CUI_MODEL_H_
