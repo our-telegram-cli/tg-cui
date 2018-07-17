@@ -130,7 +130,7 @@ class View {
 
   std::size_t get_height() const { return height; }
 
-  virtual ~View();
+  virtual ~View() = default;
 
  protected:
   std::size_t x = 0, y = 0;
