@@ -3,10 +3,8 @@
 #define TG_CUI_CONTROLLER_H
 
 class Controller {
-public:
-    Controller();
-
+ public:
+  Controller();
 };
 
-
-#endif //TG_CUI_CONTROLLER_H
+#endif  // TG_CUI_CONTROLLER_H

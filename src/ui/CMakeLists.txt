@@ -28,6 +28,6 @@ set(TARGET_SOURCES
   chat_panel.cc
 )
 
-add_library(${PROJECT_NAME} STATIC ${TARGET_HEADERS} ${TARGET_SOURCES})
+add_library(${PROJECT_NAME} ${TARGET_HEADERS} ${TARGET_SOURCES})
 
 target_link_libraries(${PROJECT_NAME} ${CURSES_LIBRARIES})
